@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Student Management App</title>
+    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+
+<div class = "container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Student Management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Student Management <span class="sr-only">(current)</span></a>
+
+    </div>
+  </div>
+</nav>
+
+<br>
+    <div class = "row">
+        <div class = " col-lg-6 col-ld-6 col-ms-6 container justify-content-center card" >
+            <h1 class="text-center"> Update Student</h1>
+            <div class = "card-body">
+
+                <form th:action = "@{/Student/{id}(id=${Student.id})}" th:object="${Student}" method="POST">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" name = "nom" th:field ="*{nom}" placeholder = "entrer le nom" class="form-control"/>
+                    </div>
+                       <div class="form-group">
+                        <label>Prenom</label>
+                        <input type="text" th:field ="*{prenom}" placeholder = "entrer le prenom" class="form-control"/>
+                    </div>
+                       <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" th:field ="*{email}" placeholder = "entrer le mail" class="form-control"/>
+                    </div>
+                    <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Enregistrer
+                            </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
